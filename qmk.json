@@ -1,7 +1,6 @@
 {
     "userspace_version": "1.0",
     "build_targets": [
-        ["zsa/voyager", "raphaelchristin"],
         ["zsa/voyager", "raphrc"]
     ]
 }
