@@ -4,7 +4,8 @@
 #define MOON_LED_LEVEL LED_LEVEL
 
 enum custom_keycodes {
-  RGB_SLD = ML_SAFE_RANGE,
+  // RGB_SLD = ML_SAFE_RANGE,
+  RGB_SLD = SAFE_RANGE,
 };
 
 
@@ -146,6 +147,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
-
-
-
