@@ -1,6 +1,5 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
-#include "keymap_steno.h"
 #define MOON_LED_LEVEL LED_LEVEL
 
 enum custom_keycodes {
