@@ -14,11 +14,11 @@ const key_override_t next_track_override =
     	KC_MPLY,             // Trigger key: play/pause
     	KC_MNXT,             // Replacement key
     	~0,                  // Activate on all layers
-    	MOD_MASK_SAG,         // Do not activate when shift or alt are pressed
+    	MOD_MASK_SA,         // Do not activate when shift or alt are pressed
     	ko_option_no_reregister_trigger); // Specifies that the play key is not registered again after lifting ctrl
     
 const key_override_t prev_track_override = ko_make_with_layers_negmods_and_options(MOD_MASK_CS, KC_MPLY,
-											KC_MPRV, ~0, MOD_MASK_AG, ko_option_no_reregister_trigger);
+											KC_MPRV, ~0, MOD_MASK_ALT, ko_option_no_reregister_trigger);
 
 const key_override_t vol_up_override = ko_make_with_layers_negmods_and_options(MOD_MASK_ALT, KC_MPLY,
 											KC_VOLU, ~0, MOD_MASK_CSG, ko_option_no_reregister_trigger);
@@ -34,7 +34,7 @@ const key_override_t brightness_down_override = ko_make_with_layers_negmods_and_
 
 const key_override_t grave_override = ko_make_with_layers_and_negmods(MOD_MASK_CTRL, KC_QUOTE, KC_GRAVE, ~0, MOD_MASK_SHIFT);
 
-const key_override_t paste_override = ko_make_with_layers_and_negmods(MOD_MASK_SHIFT, LCTL(KC_INSERT), LSFT(KC_INSERT), ~0, MOD_MASK_AG);
+// const key_override_t paste_override = ko_make_with_layers_and_negmods(MOD_MASK_SHIFT, LCTL(KC_INSERT), LSFT(KC_INSERT), ~0, MOD_MASK_AG);
 
 const key_override_t lprn_override = ko_make_with_layers_and_negmods(MOD_MASK_CTRL, KC_LBRC, KC_LPRN, ~0, MOD_MASK_SAG);
 
@@ -43,7 +43,7 @@ const key_override_t rprn_override = ko_make_with_layers_and_negmods(MOD_MASK_CT
 const key_override_t **key_overrides = (const key_override_t *[]){
     &delete_key_override,
     &grave_override,
-    &paste_override,
+    // &paste_override,
     &next_track_override,
     &prev_track_override,
     &vol_up_override,
@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TO(5),          KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_F6,          KC_F7,          KC_F8,          KC_MPRV,          KC_MNXT,         KC_MPLY,          
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_LBRC,          
     CW_TOGG,        MT(MOD_LALT, KC_A),MT(MOD_LGUI, KC_S),MT(MOD_LSFT, KC_D),MT(MOD_LCTL, KC_F),KC_G,                               KC_H,           MT(MOD_RCTL, KC_J),MT(MOD_RSFT, KC_K),MT(MOD_RGUI, KC_L),MT(MOD_RALT, KC_SCLN),KC_QUOTE,          
-    LCTL(KC_INSERT),KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RBRC,          
+    KC_INSERT,      KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RBRC,          
                                                     LT(3,KC_BSPC),  LT(4,KC_ENTER),                                 LT(2,KC_ESCAPE),LT(1,KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
