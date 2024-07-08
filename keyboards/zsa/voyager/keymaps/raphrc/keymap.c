@@ -8,25 +8,71 @@ enum custom_keycodes {
   RGB_SLD = SAFE_RANGE,
 };
 
+const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+const key_override_t next_track_override = 
+	ko_make_with_layers_negmods_and_options(
+   	MOD_MASK_CTRL,       // Trigger modifiers: ctrl
+    	KC_MPLY,             // Trigger key: play/pause
+    	KC_MNXT,             // Replacement key
+    	~0,                  // Activate on all layers
+    	MOD_MASK_SAG,         // Do not activate when shift or alt are pressed
+    	ko_option_no_reregister_trigger); // Specifies that the play key is not registered again after lifting ctrl
+    
+const key_override_t prev_track_override = ko_make_with_layers_negmods_and_options(MOD_MASK_CS, KC_MPLY,
+											KC_MPRV, ~0, MOD_MASK_AG, ko_option_no_reregister_trigger);
 
+const key_override_t vol_up_override = ko_make_with_layers_negmods_and_options(MOD_MASK_ALT, KC_MPLY,
+											KC_VOLU, ~0, MOD_MASK_CSG, ko_option_no_reregister_trigger);
+
+const key_override_t vol_down_override = ko_make_with_layers_negmods_and_options(MOD_MASK_SA, KC_MPLY,
+											KC_VOLD, ~0, MOD_MASK_CG, ko_option_no_reregister_trigger);
+
+const key_override_t brightness_up_override = ko_make_with_layers_negmods_and_options(MOD_MASK_GUI, KC_MPLY,
+											KC_BRIU, ~0, MOD_MASK_CSA, ko_option_no_reregister_trigger);
+
+const key_override_t brightness_down_override = ko_make_with_layers_negmods_and_options(MOD_MASK_SG, KC_MPLY,
+											KC_BRID, ~0, MOD_MASK_CA, ko_option_no_reregister_trigger);
+
+const key_override_t grave_override = ko_make_with_layers_and_negmods(MOD_MASK_CTRL, KC_QUOTE, KC_GRAVE, ~0, MOD_MASK_SHIFT);
+
+const key_override_t paste_override = ko_make_with_layers_and_negmods(MOD_MASK_CS, KC_INSERT, LSFT(KC_INSERT), ~0, MOD_MASK_AG);
+
+const key_override_t lprn_override = ko_make_with_layers_and_negmods(MOD_MASK_CTRL, KC_LBRC, KC_LPRN, ~0, MOD_MASK_SAG);
+
+const key_override_t rprn_override = ko_make_with_layers_and_negmods(MOD_MASK_CTRL, KC_RBRC, KC_RPRN, ~0, MOD_MASK_SAG);
+
+const key_override_t **key_overrides = (const key_override_t *[]){
+    &delete_key_override,
+    &grave_override,
+    &paste_override,
+    &next_track_override,
+    &prev_track_override,
+    &vol_up_override,
+    &vol_down_override,
+    &brightness_up_override,
+    &brightness_down_override,
+    &lprn_override,
+    &rprn_override,
+    NULL
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
-    TO(5),          KC_MEDIA_STOP,  KC_MEDIA_PREV_TRACK,KC_MEDIA_PLAY_PAUSE,KC_MEDIA_NEXT_TRACK,KC_PSCR,                                        KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_BRIGHTNESS_DOWN,KC_BRIGHTNESS_UP,TO(6),          
-    KC_NO,          KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_NO,          
-    KC_NO,          MT(MOD_LALT, KC_A),MT(MOD_LGUI, KC_S),MT(MOD_LSFT, KC_D),MT(MOD_LCTL, KC_F),KC_G,                                           KC_H,           MT(MOD_RCTL, KC_J),MT(MOD_RSFT, KC_K),MT(MOD_RGUI, KC_L),MT(MOD_RALT, KC_SCLN),KC_NO,          
-    KC_NO,          KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_NO,          
+    TO(5),          KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_MPLY,          
+    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_LBRC,          
+    CW_TOGG,        MT(MOD_LALT, KC_A),MT(MOD_LGUI, KC_S),MT(MOD_LSFT, KC_D),MT(MOD_LCTL, KC_F),KC_G,                               KC_H,           MT(MOD_RCTL, KC_J),MT(MOD_RSFT, KC_K),MT(MOD_RGUI, KC_L),MT(MOD_RALT, KC_SCLN),KC_QUOTE,          
+    LCTL(KC_INSERT),KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RBRC,          
                                                     LT(3,KC_BSPC),  LT(4,KC_ENTER),                                 LT(2,KC_ESCAPE),LT(1,KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_NO,          
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
     KC_NO,          KC_PLUS,        KC_7,           KC_8,           KC_9,           KC_ASTR,                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
     KC_NO,          KC_EQUAL,       KC_4,           KC_5,           KC_6,           KC_MINUS,                                       KC_NO,          KC_RIGHT_CTRL,  KC_RIGHT_SHIFT, KC_RIGHT_GUI,   KC_RIGHT_ALT,   KC_NO,          
     KC_NO,          KC_SLASH,       KC_1,           KC_2,           KC_3,           KC_DOT,                                         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
                                                     KC_0,           KC_ENTER,                                       KC_NO,          KC_TRANSPARENT
   ),
   [2] = LAYOUT_voyager(
-    KC_NO,          KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
     KC_NO,          KC_DQUO,        KC_AMPR,        KC_ASTR,        KC_TILD,        KC_GRAVE,                                       KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
     KC_NO,          KC_QUOTE,       KC_DLR,         KC_PERC,        KC_CIRC,        KC_UNDS,                                        KC_NO,          KC_RIGHT_CTRL,  KC_RIGHT_SHIFT, KC_RIGHT_GUI,   KC_RIGHT_ALT,   KC_NO,          
     KC_NO,          KC_BSLS,        KC_EXLM,        KC_AT,          KC_HASH,        KC_PIPE,                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
@@ -53,13 +99,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LEFT_CTRL,   KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_NO,          
                                                     KC_SPACE,       KC_ESCAPE,                                      KC_ENTER,       KC_BSPC
   ),
-  [6] = LAYOUT_voyager(
-    KC_NO,          QK_STENO_GEMINI,STN_NB,         STN_NC,         STN_RES1,       STN_RES2,                                       QK_STENO_BOLT,  STN_PWR,        STN_NC,         STN_NB,         STN_FN,         TO(0),          
-    KC_NO,          STN_N1,         STN_N2,         STN_N3,         STN_N4,         STN_N5,                                         STN_N6,         STN_N7,         STN_N8,         STN_N9,         STN_NA,         KC_NO,          
-    KC_NO,          STN_S1,         STN_TL,         STN_PL,         STN_HL,         STN_ST1,                                        STN_FR,         STN_PR,         STN_LR,         STN_TR,         STN_DR,         KC_NO,          
-    KC_NO,          STN_S2,         STN_KL,         STN_WL,         STN_RL,         STN_ST2,                                        STN_RR,         STN_BR,         STN_GR,         STN_SR,         STN_ZR,         KC_NO,          
-                                                    STN_A,          STN_O,                                          STN_E,          STN_U
-  ),
 };
 
 
@@ -82,8 +121,6 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
     [4] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {65,148,192}, {65,148,192}, {65,148,192}, {65,148,192}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
     [5] = { {128,99,188}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230} },
-
-    [6] = { {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {128,99,188}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230} },
 
 };
 
@@ -124,9 +161,6 @@ bool rgb_matrix_indicators_user(void) {
       break;
     case 5:
       set_layer_color(5);
-      break;
-    case 6:
-      set_layer_color(6);
       break;
    default:
     if (rgb_matrix_get_flags() == LED_FLAG_NONE)
