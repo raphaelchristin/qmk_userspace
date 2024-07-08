@@ -57,10 +57,10 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
-    TO(5),          KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_F6,          KC_F7,          KC_F8,          KC_MPRV,          KC_MNXT,         KC_MPLY,          
-    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_LBRC,          
+    TO(5),          KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_F6,          KC_F7,          KC_F8,          KC_MPRV,        KC_MNXT,        KC_MPLY,          
+    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_INSERT,          
     CW_TOGG,        MT(MOD_LALT, KC_A),MT(MOD_LGUI, KC_S),MT(MOD_LSFT, KC_D),MT(MOD_LCTL, KC_F),KC_G,                               KC_H,           MT(MOD_RCTL, KC_J),MT(MOD_RSFT, KC_K),MT(MOD_RGUI, KC_L),MT(MOD_RALT, KC_SCLN),KC_QUOTE,          
-    KC_INSERT,      KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RBRC,          
+    KC_LBRC,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RBRC,          
                                                     LT(3,KC_BSPC),  LT(4,KC_ENTER),                                 LT(2,KC_ESCAPE),LT(1,KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
