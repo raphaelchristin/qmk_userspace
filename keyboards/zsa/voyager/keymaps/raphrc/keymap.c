@@ -7,7 +7,7 @@ enum custom_keycodes {
   RGB_SLD = SAFE_RANGE,
 };
 
-const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, LT(3,KC_BSPC), KC_DEL);
 const key_override_t next_track_override = 
 	ko_make_with_layers_negmods_and_options(
    	MOD_MASK_CTRL,       // Trigger modifiers: ctrl
@@ -34,7 +34,7 @@ const key_override_t brightness_down_override = ko_make_with_layers_negmods_and_
 
 const key_override_t grave_override = ko_make_with_layers_and_negmods(MOD_MASK_CTRL, KC_QUOTE, KC_GRAVE, ~0, MOD_MASK_SHIFT);
 
-const key_override_t paste_override = ko_make_with_layers_and_negmods(MOD_MASK_CS, KC_INSERT, LSFT(KC_INSERT), ~0, MOD_MASK_AG);
+const key_override_t paste_override = ko_make_with_layers_and_negmods(MOD_MASK_SHIFT, LCTL(KC_INSERT), LSFT(KC_INSERT), ~0, MOD_MASK_AG);
 
 const key_override_t lprn_override = ko_make_with_layers_and_negmods(MOD_MASK_CTRL, KC_LBRC, KC_LPRN, ~0, MOD_MASK_SAG);
 
