@@ -57,32 +57,32 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
-    TO(4),          KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,        KC_MPLY,          
-    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           QK_LEAD,          
-    CW_TOGG,        MT(MOD_LALT, KC_A),MT(MOD_LGUI, KC_S),MT(MOD_LSFT, KC_D),MT(MOD_LCTL, KC_F),KC_G,                               KC_H,           MT(MOD_RCTL, KC_J),MT(MOD_RSFT, KC_K),MT(MOD_RGUI, KC_L),MT(MOD_RALT, KC_SCLN),KC_QUOTE,          
-    KC_NO,          KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       QK_REP,          
-                                                    LT(3,KC_BSPC),  LT(3,KC_ENTER),                                 LT(2,QK_LEAD),LT(1,KC_SPACE)
+    TO(4),          KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MPLY,          
+    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_GRAVE,          
+    KC_MINUS,       MT(MOD_LALT, KC_A),MT(MOD_LGUI, KC_S),MT(MOD_LSFT, KC_D),MT(MOD_LCTL, KC_F),KC_G,                               KC_H,           MT(MOD_RCTL, KC_J),MT(MOD_RSFT, KC_K),MT(MOD_RGUI, KC_L),MT(MOD_RALT, KC_SCLN),KC_QUOTE,          
+    QK_AREP,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       QK_REP,          
+                                                    LT(2,KC_BSPC),  LT(3,KC_ENTER),                                 QK_LEAD,LT(1,KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
-    KC_NO,          KC_PLUS,        KC_7,           KC_8,           KC_9,           KC_ASTR,                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
-    KC_NO,          KC_EQUAL,       KC_4,           KC_5,           KC_6,           KC_MINUS,                                       KC_NO,          KC_RIGHT_CTRL,  KC_RIGHT_SHIFT, KC_RIGHT_GUI,   KC_RIGHT_ALT,   KC_NO,          
-    KC_NO,          KC_SLASH,       KC_1,           KC_2,           KC_3,           KC_DOT,                                         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+    KC_NO,          KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_NO,          
+    KC_NO,          KC_LPRN,        KC_7,           KC_8,           KC_9,           KC_RPRN,                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+    KC_NO,          KC_LBRC,        KC_4,           KC_5,           KC_6,           KC_RBRC,                                        KC_NO,          KC_RIGHT_CTRL,  KC_RIGHT_SHIFT, KC_RIGHT_GUI,   KC_RIGHT_ALT,   KC_NO,          
+    KC_NO,          KC_LCBR,        KC_1,           KC_2,           KC_3,           KC_RCBR,                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
                                                     KC_0,           KC_ENTER,                                       KC_NO,          KC_TRANSPARENT
   ),
   [2] = LAYOUT_voyager(
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
-    KC_NO,          KC_DQUO,        KC_AMPR,        KC_ASTR,        KC_TILD,        KC_GRAVE,                                       KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
-    KC_NO,          KC_QUOTE,       KC_DLR,         KC_PERC,        KC_CIRC,        KC_UNDS,                                        KC_NO,          KC_RIGHT_CTRL,  KC_RIGHT_SHIFT, KC_RIGHT_GUI,   KC_RIGHT_ALT,   KC_NO,          
-    KC_NO,          KC_BSLS,        KC_EXLM,        KC_AT,          KC_HASH,        KC_PIPE,                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
-                                                    KC_DELETE,      CW_TOGG,                                        KC_TRANSPARENT, KC_NO
+    KC_NO,          KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_NO,          
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_TILD,        KC_AMPR,        KC_ASTR,        KC_MINUS,       KC_UNDS,        KC_NO,          
+    KC_NO,          KC_LEFT_ALT,    KC_LEFT_GUI,    KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_NO,                                          KC_PLUS,        KC_DLR,         KC_PERC,        KC_CIRC,        KC_EQUAL,       KC_NO,          
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_PIPE,        KC_EXLM,        KC_AT,          KC_HASH,        KC_BSLS,        KC_NO,          
+                                                    KC_TRANSPARENT, KC_NO,                                      KC_NO, KC_NO
   ),
   [3] = LAYOUT_voyager(
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_LCBR,        KC_LBRC,        KC_LPRN,        KC_NO,          KC_NO,          
     KC_NO,          KC_LEFT_ALT,    KC_LEFT_GUI,    KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_NO,                                          KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_NO,          KC_NO,          
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_RCBR,        KC_RBRC,        KC_RPRN,        KC_NO,          KC_NO,          
-                                                    KC_TRANSPARENT, KC_NO,                                          LSFT(KC_TAB),   KC_TAB
+                                                    KC_NO, KC_TRANSPARENT,                                          KC_NO,   KC_NO
   ),
   // [4] = LAYOUT_voyager(
   //   KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
@@ -175,6 +175,14 @@ void leader_end_user(void) {
         SEND_STRING("\e");
     } else if (leader_sequence_one_key(KC_A)){
 	caps_word_toggle();
+    } else if (leader_sequence_one_key(KC_H)){
+	SS_TAP(KC_LEFT);
+    } else if (leader_sequence_one_key(KC_J)){
+	SS_TAP(KC_DOWN);
+    } else if (leader_sequence_one_key(KC_K)){
+	SS_TAP(KC_UP);
+    } else if (leader_sequence_one_key(KC_L)){
+	SS_TAP(KC_RIGHT);
     }
 }
 
