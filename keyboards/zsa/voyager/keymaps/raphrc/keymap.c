@@ -174,8 +174,8 @@ void leader_start_user(void) {
 }
 
 void leader_end_user(void) {
-    if (leader_sequende_one_key(KC_E)){
-        SS_TAP("\e");
+    if (leader_sequence_one_key(KC_E)){
+        SEND_STRING("\e");
     }
 }
 
