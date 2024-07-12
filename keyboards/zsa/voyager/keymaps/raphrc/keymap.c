@@ -36,9 +36,9 @@ const key_override_t grave_override = ko_make_with_layers_and_negmods(MOD_MASK_C
 
 // const key_override_t paste_override = ko_make_with_layers_and_negmods(MOD_MASK_SHIFT, LCTL(KC_INSERT), LSFT(KC_INSERT), ~0, MOD_MASK_AG);
 
-const key_override_t lprn_override = ko_make_with_layers_and_negmods(MOD_MASK_CTRL, KC_LBRC, KC_LPRN, ~0, MOD_MASK_SAG);
+// const key_override_t lprn_override = ko_make_with_layers_and_negmods(MOD_MASK_CTRL, KC_LBRC, KC_LPRN, ~0, MOD_MASK_SAG);
 
-const key_override_t rprn_override = ko_make_with_layers_and_negmods(MOD_MASK_CTRL, KC_RBRC, KC_RPRN, ~0, MOD_MASK_SAG);
+// const key_override_t rprn_override = ko_make_with_layers_and_negmods(MOD_MASK_CTRL, KC_RBRC, KC_RPRN, ~0, MOD_MASK_SAG);
 
 const key_override_t **key_overrides = (const key_override_t *[]){
     &delete_key_override,
@@ -50,18 +50,18 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     &vol_down_override,
     &brightness_up_override,
     &brightness_down_override,
-    &lprn_override,
-    &rprn_override,
+    // &lprn_override,
+    // &rprn_override,
     NULL
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
-    TO(5),          KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,        KC_MPLY,          
-    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           QK_REP,          
+    TO(4),          KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,        KC_MPLY,          
+    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           QK_LEAD,          
     CW_TOGG,        MT(MOD_LALT, KC_A),MT(MOD_LGUI, KC_S),MT(MOD_LSFT, KC_D),MT(MOD_LCTL, KC_F),KC_G,                               KC_H,           MT(MOD_RCTL, KC_J),MT(MOD_RSFT, KC_K),MT(MOD_RGUI, KC_L),MT(MOD_RALT, KC_SCLN),KC_QUOTE,          
-    KC_LBRC,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RBRC,          
-                                                    LT(3,KC_BSPC),  LT(4,KC_ENTER),                                 LT(2,QK_LEAD),LT(1,KC_SPACE)
+    KC_NO,          KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       QK_REP,          
+                                                    LT(3,KC_BSPC),  LT(3,KC_ENTER),                                 LT(2,QK_LEAD),LT(1,KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
@@ -84,14 +84,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_RCBR,        KC_RBRC,        KC_RPRN,        KC_NO,          KC_NO,          
                                                     KC_TRANSPARENT, KC_NO,                                          LSFT(KC_TAB),   KC_TAB
   ),
+  // [4] = LAYOUT_voyager(
+  //   KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+  //   KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+  //   KC_NO,          KC_LEFT_ALT,    KC_LEFT_GUI,    KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+  //   KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+  //                                                   KC_NO,          KC_TRANSPARENT,                                 KC_NO,          KC_NO
+  // ),
   [4] = LAYOUT_voyager(
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
-    KC_NO,          KC_LEFT_ALT,    KC_LEFT_GUI,    KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
-                                                    KC_NO,          KC_TRANSPARENT,                                 KC_NO,          KC_NO
-  ),
-  [5] = LAYOUT_voyager(
     TO(0),          KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_NO,          
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_NO,          
     KC_LEFT_SHIFT,  KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                                           KC_H,           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_NO,          
@@ -117,9 +117,9 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
     [3] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {65,148,192}, {65,148,192}, {65,148,192}, {65,148,192}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
-    [4] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {65,148,192}, {65,148,192}, {65,148,192}, {65,148,192}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
+    // [4] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {65,148,192}, {65,148,192}, {65,148,192}, {65,148,192}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
-    [5] = { {128,99,188}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230} },
+    [4] = { {128,99,188}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230}, {28,151,230} },
 
 };
 
@@ -158,9 +158,6 @@ bool rgb_matrix_indicators_user(void) {
     case 4:
       set_layer_color(4);
       break;
-    case 5:
-      set_layer_color(5);
-      break;
    default:
     if (rgb_matrix_get_flags() == LED_FLAG_NONE)
       rgb_matrix_set_color_all(0, 0, 0);
@@ -176,6 +173,8 @@ void leader_start_user(void) {
 void leader_end_user(void) {
     if (leader_sequence_one_key(KC_E)){
         SEND_STRING("\e");
+    } else if (leader_sequence_one_key(KC_A)){
+        SS_TAP(CW_TOGG);
     }
 }
 
