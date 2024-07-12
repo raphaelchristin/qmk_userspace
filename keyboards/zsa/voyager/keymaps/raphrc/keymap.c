@@ -174,7 +174,7 @@ void leader_end_user(void) {
     if (leader_sequence_one_key(KC_E)){
         SEND_STRING("\e");
     } else if (leader_sequence_one_key(KC_A)){
-        SS_TAP(CW_TOGG);
+	caps_word_toggle();
     }
 }
 
