@@ -176,13 +176,13 @@ void leader_end_user(void) {
     } else if (leader_sequence_one_key(KC_A)){
 	caps_word_toggle();
     } else if (leader_sequence_one_key(KC_H)){
-	SS_TAP(KC_LEFT);
+	SS_TAP(X_LEFT);
     } else if (leader_sequence_one_key(KC_J)){
-	SS_TAP(KC_DOWN);
+	SS_TAP(X_DOWN);
     } else if (leader_sequence_one_key(KC_K)){
-	SS_TAP(KC_UP);
+	SS_TAP(X_UP);
     } else if (leader_sequence_one_key(KC_L)){
-	SS_TAP(KC_RIGHT);
+	SS_TAP(X_RIGHT);
     }
 }
 
