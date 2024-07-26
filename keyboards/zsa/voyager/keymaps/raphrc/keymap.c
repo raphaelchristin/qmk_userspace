@@ -62,9 +62,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
     TO(3),      KC_1,               KC_2,               KC_3,               KC_4,               KC_5,               KC_6,    KC_7,               KC_8,               KC_MPRV,            KC_MNXT,               KC_MPLY,          
     KC_GRAVE,   KC_Q,               KC_W,               KC_E,               KC_R,               KC_T,               KC_Y,    KC_U,               KC_I,               KC_O,               KC_P,                  KC_QUOTE,          
-    CW_TOGG,	MT(MOD_LALT, KC_A), MT(MOD_LGUI, KC_S), MT(MOD_LSFT, KC_D), MT(MOD_LCTL, KC_F), KC_G,               KC_H,    MT(MOD_RCTL, KC_J), MT(MOD_RSFT, KC_K), MT(MOD_RGUI, KC_L), MT(MOD_RALT, KC_SCLN), QK_REP,          
-    KC_MINUS,   KC_Z,               KC_X,               KC_C,               KC_V,               KC_B,               KC_N,    KC_M,               KC_COMMA,           KC_DOT,             KC_SLASH,              KC_PIPE,          
-                                                                            LT(2,KC_BSPC),      KC_ENTER,           QK_LEAD, LT(1,KC_SPACE)
+    KC_MINUS,	MT(MOD_LALT, KC_A), MT(MOD_LGUI, KC_S), MT(MOD_LSFT, KC_D), MT(MOD_LCTL, KC_F), KC_G,               KC_H,    MT(MOD_RCTL, KC_J), MT(MOD_RSFT, KC_K), MT(MOD_RGUI, KC_L), MT(MOD_RALT, KC_SCLN), QK_LEAD,          
+    CW_TOGG,    KC_Z,               KC_X,               KC_C,               KC_V,               KC_B,               KC_N,    KC_M,               KC_COMMA,           KC_DOT,             KC_SLASH,              KC_PIPE,          
+                                                                            LT(2,KC_BSPC),      KC_ENTER,           QK_REP,  LT(1,KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
     KC_NO,      KC_NO,              KC_NO,              KC_F3,              KC_F4,              KC_F5,              KC_F6,   KC_F7,              KC_F8,              KC_F9,             KC_F10,                 KC_NO,          
@@ -164,7 +164,15 @@ void leader_start_user(void) {
 void leader_end_user(void) {
     if (leader_sequence_one_key(KC_E)){
         SEND_STRING("\e");
-    } 
+    } else if (leader_sequence_one_key(KC_A)) {	
+	if (is_caps_word_on()){
+	    caps_word_off();
+	} else {
+	    caps_word_on();	
+	}
+    } else if (leader_sequence_one_key(KC_T)) {
+	caps_word_toggle();
+    }
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
