@@ -7,7 +7,7 @@ enum custom_keycodes {
   RGB_SLD = SAFE_RANGE,
 };
 
-const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, LT(3,KC_BSPC), KC_DEL);
+const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, LT(2,KC_BSPC), KC_DEL);
 const key_override_t next_track_override = 
 	ko_make_with_layers_negmods_and_options(
    	MOD_MASK_CTRL,       // Trigger modifiers: ctrl
@@ -34,8 +34,6 @@ const key_override_t brightness_down_override = ko_make_with_layers_negmods_and_
 
 const key_override_t grave_override = ko_make_basic(MOD_MASK_SHIFT, KC_TILD, KC_GRAVE);
 
-const key_override_t underscore_override = ko_make_basic(MOD_MASK_SHIFT, KC_UNDS, KC_MINUS);
-
 const key_override_t pipe_override = ko_make_basic(MOD_MASK_SHIFT, KC_PIPE, KC_BSLS);
 
 const key_override_t tab_override = ko_make_basic(MOD_MASK_CTRL, LT(1, KC_SPACE), KC_TAB);
@@ -55,7 +53,6 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     &brightness_down_override,
     &pipe_override,
     &tab_override,
-    &underscore_override,
     // &lprn_override,
     // &rprn_override,
     NULL
@@ -65,8 +62,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
     TO(3),      KC_1,               KC_2,               KC_3,               KC_4,               KC_5,               KC_6,    KC_7,               KC_8,               KC_MPRV,            KC_MNXT,               KC_MPLY,          
     KC_GRAVE,   KC_Q,               KC_W,               KC_E,               KC_R,               KC_T,               KC_Y,    KC_U,               KC_I,               KC_O,               KC_P,                  KC_QUOTE,          
-    KC_UNDS,	MT(MOD_LALT, KC_A), MT(MOD_LGUI, KC_S), MT(MOD_LSFT, KC_D), MT(MOD_LCTL, KC_F), KC_G,               KC_H,    MT(MOD_RCTL, KC_J), MT(MOD_RSFT, KC_K), MT(MOD_RGUI, KC_L), MT(MOD_RALT, KC_SCLN), QK_REP,          
-    KC_LBRC,    KC_Z,               KC_X,               KC_C,               KC_V,               KC_B,               KC_N,    KC_M,               KC_COMMA,           KC_DOT,             KC_SLASH,              KC_RBRC,          
+    CW_TOGG,	MT(MOD_LALT, KC_A), MT(MOD_LGUI, KC_S), MT(MOD_LSFT, KC_D), MT(MOD_LCTL, KC_F), KC_G,               KC_H,    MT(MOD_RCTL, KC_J), MT(MOD_RSFT, KC_K), MT(MOD_RGUI, KC_L), MT(MOD_RALT, KC_SCLN), QK_REP,          
+    KC_MINUS,   KC_Z,               KC_X,               KC_C,               KC_V,               KC_B,               KC_N,    KC_M,               KC_COMMA,           KC_DOT,             KC_SLASH,              KC_PIPE,          
                                                                             LT(2,KC_BSPC),      KC_ENTER,           QK_LEAD, LT(1,KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
@@ -78,10 +75,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [2] = LAYOUT_voyager(
     KC_NO,     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,          KC_NO,          
-    KC_NO,     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_LT,          KC_LCBR,        KC_LBRC,        KC_LPRN,        KC_CIRC,         KC_NO,          
-    KC_NO,     KC_LEFT_ALT,    KC_LEFT_GUI,    KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_NO,                                          KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_EQUAL,        KC_AT,          
-    KC_NO,     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_GT,          KC_RCBR,        KC_RBRC,        KC_RPRN,        KC_DLR,          KC_PIPE,          
-                                                               KC_TRANSPARENT, KC_NO,                                          KC_NO,          KC_EXLM
+    KC_NO,     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_CIRC,        KC_LCBR,        KC_LBRC,        KC_LPRN,        KC_LT,           KC_NO,          
+    KC_NO,     KC_LEFT_ALT,    KC_LEFT_GUI,    KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_NO,                                          KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_EXCL,         KC_NO,          
+    KC_NO,     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_DLR,         KC_RCBR,        KC_RBRC,        KC_RPRN,        KC_GT,           KC_NO,          
+                                                               KC_TRANSPARENT, KC_NO,                                          KC_AT,          KC_EQUAL
   ),
   // [4] = LAYOUT_voyager(
   //   KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
@@ -167,8 +164,6 @@ void leader_start_user(void) {
 void leader_end_user(void) {
     if (leader_sequence_one_key(KC_E)){
         SEND_STRING("\e");
-    } else if (leader_sequence_one_key(KC_A)){
-	caps_word_toggle();
     } 
 }
 
