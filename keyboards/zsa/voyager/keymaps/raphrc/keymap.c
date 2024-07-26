@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TO(3),      KC_1,               KC_2,               KC_3,               KC_4,               KC_5,               KC_6,    KC_7,               KC_8,               KC_MPRV,            KC_MNXT,               KC_MPLY,          
     KC_GRAVE,   KC_Q,               KC_W,               KC_E,               KC_R,               KC_T,               KC_Y,    KC_U,               KC_I,               KC_O,               KC_P,                  KC_QUOTE,          
     KC_UNDS,	MT(MOD_LALT, KC_A), MT(MOD_LGUI, KC_S), MT(MOD_LSFT, KC_D), MT(MOD_LCTL, KC_F), KC_G,               KC_H,    MT(MOD_RCTL, KC_J), MT(MOD_RSFT, KC_K), MT(MOD_RGUI, KC_L), MT(MOD_RALT, KC_SCLN), QK_REP,          
-    KC_AT,      KC_Z,               KC_X,               KC_C,               KC_V,               KC_B,               KC_N,    KC_M,               KC_COMMA,           KC_DOT,             KC_SLASH,              KC_PIPE,          
+    KC_LBRC,    KC_Z,               KC_X,               KC_C,               KC_V,               KC_B,               KC_N,    KC_M,               KC_COMMA,           KC_DOT,             KC_SLASH,              KC_RBRC,          
                                                                             LT(2,KC_BSPC),      KC_ENTER,           QK_LEAD, LT(1,KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
@@ -79,8 +79,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [2] = LAYOUT_voyager(
     KC_NO,     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,          KC_NO,          
     KC_NO,     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_LT,          KC_LCBR,        KC_LBRC,        KC_LPRN,        KC_CIRC,         KC_NO,          
-    KC_NO,     KC_LEFT_ALT,    KC_LEFT_GUI,    KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_NO,                                          KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_EQUAL,        KC_NO,          
-    KC_NO,     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_GT,          KC_RCBR,        KC_RBRC,        KC_RPRN,        KC_DLR,          KC_NO,          
+    KC_NO,     KC_LEFT_ALT,    KC_LEFT_GUI,    KC_LEFT_SHIFT,  KC_LEFT_CTRL,   KC_NO,                                          KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_EQUAL,        KC_AT,          
+    KC_NO,     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_GT,          KC_RCBR,        KC_RBRC,        KC_RPRN,        KC_DLR,          KC_PIPE,          
                                                                KC_TRANSPARENT, KC_NO,                                          KC_NO,          KC_EXLM
   ),
   // [4] = LAYOUT_voyager(
